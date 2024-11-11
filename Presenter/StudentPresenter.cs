@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Presenter
 {
@@ -18,15 +19,16 @@ namespace Presenter
             model.DataChanged += view.RedrawForm;
             view.AddDataEvent += OnAddData;
             view.DeleteDataEvent += model.Delete;
-            model.InvokeDataChanged();
+            //model.InvokeDataChanged();
         }
 
         private void OnAddData(List<object> newStudent)
         {
             Student student = new Student();
-            student.Name = (string)newStudent[0];
-            student.Specialty = (string)newStudent[1];
-            student.Group = (string)newStudent[2];
+            student.Id = (int)newStudent[0];
+            student.Name = (string)newStudent[1];
+            student.Specialty = (string)newStudent[2];
+            student.Group = (string)newStudent[3];
             model.Insert(student);
         }
     }

@@ -12,6 +12,8 @@ namespace pract4
 {
     public partial class StudentView : Form, IView
     {
+        int k = 0;
+
         public StudentView()
         {
             InitializeComponent();
@@ -31,23 +33,25 @@ namespace pract4
         public void RedrawForm(IEnumerable<IEnumerable<object>> students)
         {
             studentsListView.Items.Clear();
-            int k = 1;
+            //int k = 1;
             foreach (var student in students)
             {
                 List<object> studentData = new List<object>(student);
-                ListViewItem studentItem = new ListViewItem(k.ToString());
-                studentItem.SubItems.Add(studentData[0].ToString());
+                ListViewItem studentItem = new ListViewItem(studentData[0].ToString());
                 studentItem.SubItems.Add(studentData[1].ToString());
                 studentItem.SubItems.Add(studentData[2].ToString());
+                studentItem.SubItems.Add(studentData[3].ToString());
                 studentsListView.Items.Add(studentItem);
-                k++;
+                //k++;
             }
         }
 
         private void addStudentButton_Click(object sender, EventArgs e)
         {
+            k++;
             List<object> newStudent = new List<object>()
             {
+                k,
                 nameTextBox.Text,
                 specialtyTextBox.Text,
                 groupTextBox.Text

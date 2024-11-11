@@ -31,6 +31,7 @@ namespace Model
                 Student student = students[i];
                 newStudents.Add(new List<object>()
                 {
+                    student.Id,
                     student.Name,
                     student.Specialty,
                     student.Group

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Model
 {
     public delegate void DataChangedDelegate(IEnumerable<IEnumerable<object>> students);
-    public interface IModel<T> where T : class
+    public interface IModel<T>
     {
         event DataChangedDelegate DataChanged;
         void Delete(int index);

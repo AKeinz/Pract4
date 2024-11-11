@@ -16,6 +16,7 @@ namespace Presenter
             StudentView view = new StudentView();
             new StudentPresenter(view, new BusinessLogic());
             Application.Run(view);
+            
         }
     }
 }
